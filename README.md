@@ -6,7 +6,7 @@ These tests are written using CodeceptJS with Puppeteer
 
 I assume you have installed `nodeJS`, `npm` and `npx` (npm install -g npx).
 
-* Clone this repository (git clone )
+* Clone this repository (* git clone https://github.com/anujoshi222/BusPatrol.git * )
 * npm install
 * npm install -g npx (if not installed)
 
