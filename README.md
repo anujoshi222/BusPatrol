@@ -6,7 +6,7 @@ These tests are written using CodeceptJS with Puppeteer
 
 I assume you have installed `nodeJS`, `npm` and `npx` (npm install -g npx).
 
-* clone this repository
+* Clone this repository (git clone )
 * npm install
 * npm install -g npx (if not installed)
 
