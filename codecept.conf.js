@@ -8,15 +8,22 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './test/*/*_test.js',
+  tests: './test/*_test.js',
+  multiple: {
+    parallel: {
+      chunks: 4,
+      browsers: ['puppeteer']
+    }
+  },
   output: './mochawesome_report',
   helpers: {
     Puppeteer: {
-      url: 'https://www.fourmodules.com/',
-      browser: "chrome",
-      show: true,
-      windowSize: '1200x900',
-      waitForNavigation: "networkidle0"
+      url: 'https://www.fourmodules.com',
+      show: false,
+      restart: false,
+      chrome: {args:['--no-sandbox','--disable-setuid-sandbox','--disable-accelerated-2d-canvas','--disable-gpu']},
+      windowSize: '1500x1200',
+      waitForNavigation: ['networkidle2','domcontentloaded']
     },
     Mochawesome: {
     uniqueScreenshotNames: "true"
@@ -26,11 +33,18 @@ exports.config = {
   require: "codeceptjs-assert"
 },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    fourModules: './helper/fourModules.js',
+    clearTrip: './helper/clearTrip.js',
+    boardGame:'./helper/boardGame.js',
+    spiceJet: './helper/spicejet.js',
+    datePickerFragment: './fragments/datePicker.js',
+    H: './helper/homePageHelper.js'
   },
   mocha: {
   reporterOptions: {
-      reportDir: "mochawesome_report"
+      reportDir: "mochawesome_report",
+      uniqueScreenshotNames: true
   }
 },
   name: 'BusPatrol'
